@@ -1,16 +1,4 @@
 <<<<<<< HEAD
 # Project 2
 **report1**
-Vue Router is a software system created by Evan You, the creator of Vue.js. 
-=======
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/ZL2e6lYH)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=11093138&assignment_repo_type=AssignmentRepo)
-
-<<<<<<< HEAD
-* vue-router is developed by the Vue.js core team, and it is maintained by Evan You and a team of developers.
->>>>>>> 18d7932d961dcbb7312c813ff6bbbf5b9a5264cc
-=======
-
-
-Vue Router is a software system created by Evan You, the creator of Vue.js.It provides routing capabilities for Vue.js applications, allowing users to navigate between different views or pages seamlessly. 
->>>>>>> 2d8486d3e38e9c975308159b7ca27095e0adcc5f
+Vue Router is a software system created by Evan You, the creator of Vue.js. It provides routing capabilities for Vue.js applications, allowing users to navigate between different views or pages seamlessly. The Vue.js team, led by Evan You, currently maintains Vue Router, and they are responsible for approving changes to its code and architecture.
