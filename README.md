@@ -3,4 +3,4 @@
 
 
 
-Vue Router is a software system created by Evan You, the creator of Vue.js..
+Vue Router is a software system created by Evan You, the creator of Vue.js.It provides routing capabilities for Vue.js applications, allowing users to navigate between different views or pages seamlessly. 
