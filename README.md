@@ -1,5 +1,5 @@
 # Vue Router
-<center>![](/logo.png)</center>
+<div align=center>![](/logo.png)</div>
 ## Introduction
 Vue Router is a routing library that allows developers to manage client-side routing in single-page applications (SPAs) built with the Vue.js framework. It enables the creation of dynamic and interactive user interfaces by mapping URLs to specific components. Features include:
   <ul>
