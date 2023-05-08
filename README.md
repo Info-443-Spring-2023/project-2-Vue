@@ -1,4 +1,16 @@
-<<<<<<< HEAD
 # Project 2
-**report1**
-Vue Router is a software system created by Evan You, the creator of Vue.js. It provides routing capabilities for Vue.js applications, allowing users to navigate between different views or pages seamlessly. The Vue.js team, led by Evan You, currently maintains Vue Router, and they are responsible for approving changes to its code and architecture.
+## Introduction
+Vue Router is a routing library that allows developers to manage client-side routing in single-page applications (SPAs) built with the Vue.js framework. It enables the creation of dynamic and interactive user interfaces by mapping URLs to specific components. Features include:
+  <ul>
+    <li>Nested routes mapping</li>
+    <li>Dynamic Routing</li>
+    <li>Modular, component-based router configuration</li>
+    <li>Route params, query, wildcards</li>
+    <li>View transition effects powered by Vue.js' transition system</li>
+    <li>Fine-grained navigation control</li>
+    <li>Links with automatic active CSS classes</li>
+    <li>HTML5 history mode or hash mode</li>
+    <li>Customizable Scroll Behavior</li>
+    <li>Proper encoding for URLs</li>
+  </ul>
+Vue Router was created by Evan You, the creator of Vue.js, and is currently maintained by the Vue.js team and the open-source community. The Vue.js team is responsible for approving changes to its code and architecture, and the library is developed and maintained as an open-source project.
