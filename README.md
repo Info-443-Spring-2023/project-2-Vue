@@ -13,4 +13,4 @@ Vue Router is a routing library that allows developers to manage client-side rou
     <li>Customizable Scroll Behavior</li>
     <li>Proper encoding for URLs</li>
   </ul>
-Vue Router was created by Evan You, the creator of Vue.js, and is currently maintained by the Vue.js team and the open-source community. The Vue.js team is responsible for approving changes to its code and architecture, and the library is developed and maintained as an open-source project.
+<p>Vue Router was created by Evan You, the creator of Vue.js, and is currently maintained by the Vue.js team and the open-source community. The Vue.js team is responsible for approving changes to its code and architecture, and the library is developed and maintained as an open-source project.</p>
