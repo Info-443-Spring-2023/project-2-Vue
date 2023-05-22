@@ -23,10 +23,10 @@ Vue Router is a routing library that allows developers to manage client-side rou
 
 - Relevant Client-Server Architecture Concerns
 <ul>
-<li>**Scalability**: Consider the system's capacity to scale in order to accommodate growing user traffic and many continuous inquiries. This entails investigating the distributed processing capabilities, caching techniques, and load balancing systems.</li>
-<li>**Safety**: Evaluate the system's security procedures in place to guard against unauthorized access, data breaches, and other security risks. Analyzing authentication processes, data encryption, and secure communication protocols may be necessary for this.</li>
-<li>**Performance**: Consider the client-server aspect of the vue-router architecture while evaluating performance. To find possible bottlenecks or opportunities for improvement, analyze variables like response times, network latency, and resource use.</li>
-<li>**Network Communication**: Consider the client-server interactions and data types used in the vue-router system. This involves investigating any used communication techniques, such as WebSocket connections or RESTful APIs.</li>
-<li>**Client-Side Rendering**: Take into account how the vue-router system manages client-side rendering. Analyze the effectiveness of client-side component rendering and how it affects both performance and user experience.</li>
-<li>**Data Storage and Management**: Analyze the server-side data storage technologies employed by the system for data management. To guarantee effective data storage and retrieval, examine the data models, database technology, and data management techniques used.</li>
+<li> **Scalability** : Consider the system's capacity to scale in order to accommodate growing user traffic and many continuous inquiries. This entails investigating the distributed processing capabilities, caching techniques, and load balancing systems.</li>
+<li> **Safety** : Evaluate the system's security procedures in place to guard against unauthorized access, data breaches, and other security risks. Analyzing authentication processes, data encryption, and secure communication protocols may be necessary for this.</li>
+<li> **Performance** : Consider the client-server aspect of the vue-router architecture while evaluating performance. To find possible bottlenecks or opportunities for improvement, analyze variables like response times, network latency, and resource use.</li>
+<li> **Network Communication** : Consider the client-server interactions and data types used in the vue-router system. This involves investigating any used communication techniques, such as WebSocket connections or RESTful APIs.</li>
+<li> **Client-Side Rendering** : Take into account how the vue-router system manages client-side rendering. Analyze the effectiveness of client-side component rendering and how it affects both performance and user experience.</li>
+<li> **Data Storage and Management** : Analyze the server-side data storage technologies employed by the system for data management. To guarantee effective data storage and retrieval, examine the data models, database technology, and data management techniques used.</li>
 </ul>
