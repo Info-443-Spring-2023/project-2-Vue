@@ -1,4 +1,19 @@
 # Vue Router
+
+## Background
+Vue CLI( Vue Command Line) is a development tool that aims to simplify and streamline the process of creating, managing, and building Vue.js projects. The Vue.js is a progressive JavaScript framework for building approachable, flexible, and efficient user interfaces. Through a command-line interface, the CLI is a tool that enables developers to communicate with the Vue ecosystem, and provides various commands and features to scaffold new projects, configure project settings, run development servers, and optimize and build projects for production. Vue Router was developed to address the need for a robust routing system within Vue.js applications. It provides a way to map URLs to different views or components, allowing users to create dynamic and responsive Single-Page application. As we doing this project, we mainly focus on the plugins and extensions as it recommends.
+
+## System Components:
+### *Figure 1 - Component Image*
+<img src="./img/componentdigram.png" alt="component image" />
+
+`Router`: The component that manages the routing functionality and handles route configuration, navigation, and rendering of route components based on the current URL.\
+`Route`: Represents a single route definition in the application. It typically includes properties such as the route path, component to render, and any associated route-specific options.\
+`Route Components`: Vue components associated with each route. They represent the views or UI elements that will be rendered when specific routes are active. Examples of route components could include components for the home page, about page, user profile, or any other views in the application.\
+`Navigation Guards`: Functions that can be applied to routes and for controling and manipulating the navigation flow. They allow developers to perform actions before entering or leaving a route, such as authentication checks, data loading, or redirections.\
+`Router-View`: A special component provided by "vue-router" that acts as a placeholder for the rendered route components. It is typically used in the application's template to define where the active route component should be rendered.\
+`Router-Link`: Component provided by "vue-router" that allows for easy navigation between routes. It generates anchor tags with appropriate href attributes based on the specified route paths.
+
 ## Introduction
 Vue Router is a routing library that allows developers to manage client-side routing in single-page applications (SPAs) built with the Vue.js framework. It enables the creation of dynamic and interactive user interfaces by mapping URLs to specific components. Features include:
   <ul>
