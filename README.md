@@ -36,6 +36,9 @@ Vue Router follows the Model-View-ViewModel (MVVM) architectural approach, with 
 
 The Model layer in Vue Router is linked to the data points in a Vue component. This is where the application's information and functionality are saved. When this data changes in response to user activities, Vue Router may instantly update what the user sees on their screen. Vue Router offers a unique framework that connects the View to the ViewModel in an easy-to-use manner. This means that whenever the ViewModel changes, the View does as well.  The ViewModel layer, or the link between the Model and the View, is essentially a Vue component. A component in Vue Router performs the function of a ViewModel since it manages and modifies the data displayed on the View. It provides the View with attributes and methods and notifies it when something changes.
 
+The Vue Router is an important feature in Vue.js applications that works in tandem with the ViewModel layer. It improves the MVVM architecture's efficacy by controlling application navigation, allowing for more sophisticated user interfaces with multiple views and navigation pathways. Vue Router refreshes the ViewModel, which then updates the View when the navigation path changes. This enables the user interface to be relatively simple.
+
+Indeed, Vue Router employs several important software design patterns to improve its efficiency and maintainability.
 
 ## Architectural Assessment
 - Single Responsibility Principle
