@@ -106,8 +106,26 @@ The Observer pattern is extensively utilized in Vue Router, which enables it to 
 <p>
 Vue Router 3.0 adheres to the SRP by focusing on the responsibility of handling navigation and routing within a Vue.js application. Its primary role is to provide a way to define routes, map them to components, and manage the navigation flow. By limiting its scope to routing and navigation-related tasks, Vue Router promotes separation of concerns and keeps the responsibility of routing separate from other application logic. This enhances the modularity and maintainability of the codebase, as changes in routing requirements can be isolated to the router-related code without affecting other parts of the application. Additionally, Vue Router integrates seamlessly with Vue.js components and supports features like route-based code splitting, lazy-loading, and navigation guards. These features further reinforce the SRP by allowing developers to encapsulate specific functionality within individual components, keeping them focused on their primary responsibilities.
 </p>
-**code chunk
-
+```
+export function guardEvent (e: any) {
+  // don't redirect with control keys
+  if (e.metaKey || e.altKey || e.ctrlKey || e.shiftKey) return
+  // don't redirect when preventDefault called
+  if (e.defaultPrevented) return
+  // don't redirect on right click
+  if (e.button !== undefined && e.button !== 0) return
+  // don't redirect if `target="_blank"`
+  if (e.currentTarget && e.currentTarget.getAttribute) {
+    const target = e.currentTarget.getAttribute('target')
+    if (/\b_blank\b/i.test(target)) return
+  }
+  // this may be a Weex event which doesn't have this method
+  if (e.preventDefault) {
+    e.preventDefault()
+  }
+  return true
+}
+```
 In link.js, the guardEvent function is responsible for checking various conditions before allowing the default navigation behavior to occur. It checks for control keys, default prevention, right-clicks, and target="_blank" attributes. This function has a single responsibility related to event guarding, which adheres to the SRP.
 
 Additionally, the RouterView component in view.js and its helper functions have responsibilities related to rendering the appropriate component based on the route and handling props. They are closely related to the purpose of the component, making it cohesively follows the Single Responsibility Principle.
@@ -121,7 +139,9 @@ By allowing for such extensions, Vue Router empowers developers to adapt the rou
 </p>
 
 Similarly, some examples can be found in the components of Vue Router.
-** code chunk
+```
+const eventTypes: Array<Function> = [String, Array]
+```
 The eventTypes array defines the types of events that can be specified as the event prop of the RouterLink component. By including different event types in this array, the component can handle additional events without modifying the existing code. This adheres to the Open-Closed Principle because the code is closed for modification, but it can be extended by adding new event types to the eventTypes array.
 
 In view.js, the name prop in RouterView allows for the extension of its component by specifying a different view component name. This means that new view components can be added and rendered without modifying the existing RouterView component code. The component remains closed for modification while being open for extension through the name prop.
@@ -134,7 +154,14 @@ While Vue Router itself does not enforce the LSP, it is a good practice to consi
 
 In the module of navigation guards, isUpdateNavigation and isLeaveNavigation functions are used to determine whether a navigation event should trigger the corresponding guard. When the behavior of these functions is not consistent with the behavior expected from their parent class useFilteredGuard, the LSP is violated.
 
-** code chunk
+```
+const component = matched && matched.components[name]
+// ...
+if (!matched || !component) {
+  cache[name] = null
+  return h()
+}
+```
 Again, router view assumes that the matched object will contain components with specific names and performs actions based on that assumption. However, substituting the matched object with a different implementation that does not conform to these assumptions would lead to incorrect behavior or errors in the RouterView component.
 
 
@@ -144,12 +171,16 @@ In the context of Vue Router 3.0, ISP is highly relevant as it provides a modula
 By adhering to ISP, Vue Router enables developers to separate concerns and keep components decoupled from unnecessary dependencies. Clients can interact with Vue Router through specific APIs like route configuration, programmatic navigation methods, navigation guards, and route parameters. This promotes a clean separation of responsibilities and improves code maintainability.
 If a component only needs to define routes and handle basic navigation, it can focus solely on the route configuration aspects of Vue Router without being burdened by other functionalities. This allows the component to remain lightweight and focused on its specific responsibilities.
 </p>
+The onBeforeRouteUpdate function provides a specific interface for registering a guard to be executed before a route update. It focuses on a single responsibility and provides a clear and concise method for implementing this particular functionality. Clients who want to register a guard for route updates can use this function without being forced to depend on any other unnecessary interfaces.The onBeforeRouteLeave function also adheres to the ISP by providing a specific interface for registering a guard to be executed before leaving a route. It encapsulates the responsibility of handling route leave guards and offers a straightforward method for clients to utilize this functionality independently.
 
 - Dependency Inversion Principle
 <p>
 Since Vue Router is primarily a low-level module that provides routing functionality to higher-level components and views within a Vue.js application. It is not responsible for managing dependencies or enforcing inversion of control.
 Developers can just define their own abstractions or interfaces that represent the routing functionality required by their components. By depending on these abstractions, rather than directly on the Vue Router instance, components become independent of the concrete router implementation. Rather than directly importing and using the Vue Router instance in a component, the component could depend on a custom router interface that provides the necessary routing methods and properties. This allows for easier substitution of different routing implementations or mocks during testing.
 </p>
+For example, onBeforeRouteUpdate and onBeforeRouteLeave functions in navigation guards directly depend on the implementation of the useFilteredGuard function, which in turn depends on the getCurrentInstance and useRouter functions. This violates the DIP because the high-level functions should not depend on the low-level implementation details.
+
+The RouterLink component violates DIP by directly importing and depending on the implementation of the resolveComponent and inject functions from Vue. Components should depend on abstractions rather than specific implementations.
 
 ## System Improvement
 Multiple actions may be taken to improve the Vue Router system's performance. The system's reaction times will be improved, network latency will be decreased, and resource use will be optimized. The following suggestions can be taken into account:
@@ -277,7 +308,3 @@ export { RouterView, RouterLink, START_LOCATION, NavigationFailureType, isNaviga
 **Explanation**:
 The original code was missing the exports for NavigationFailureType and isNavigationFailure. To fix this, the import statement was updated to include these two components from the router module. Additionally, the export statement was modified to include these components in exported types.
 With this bug fix, developers using vue-router can now benefit from the proper type support and documentation for NavigationFailureType and isNavigationFailure.
-
-
-
-
