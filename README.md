@@ -2,24 +2,32 @@
 A robust routing framework created specifically for Vue.js applications is called Vue Router. It has a thorough routing system and effortlessly interacts with Vue.js, a progressive JavaScript framework for creating user interfaces. Developers may quickly associate URLs with various components using Vue Router, allowing dynamic and responsive Single-Page Applications (SPAs). It enables developers to design contemporary web applications with fluid navigation and user experiences by supporting features like nested routes, lazy-loading routes, and parameter passing. Vue Router improves the Vue.js ecosystem and makes it easier to create intricate routing systems for your Vue.js applications, whether you install it manually or use it within the Vue CLI.
 
 ## Context and Background
-Vue CLI( Vue Command Line) is a development tool that aims to simplify and streamline the process of creating, managing, and building Vue.js projects. The Vue.js is a progressive JavaScript framework for building approachable, flexible, and efficient user interfaces. Through a command-line interface, the CLI is a tool that enables developers to communicate with the Vue ecosystem, and provides various commands and features to scaffold new projects, configure project settings, run development servers, and optimize and build projects for production. Vue Router was developed to address the need for a robust routing system within Vue.js applications. It provides a way to map URLs to different views or components, allowing users to create dynamic and responsive Single-Page application. As we doing this project, we mainly focus on the plugins and extensions as it recommends.
+ The Vue.js is a progressive JavaScript framework for building approachable, flexible, and efficient user interfaces. The Vue router is an important component of the Vue.js ecosystem, and the official Github repository for the Vue router serves as a valuable resource for understanding the implementation and architecture of the Vue Router. The repository also has extensive documentation and guidelines, making it an essential developer reference. Vue Router was developed to address the need for a robust routing system within Vue.js applications. It provides a way to map URLs to different views or components, allowing users to create dynamic and responsive Single-Page application. As we doing this project, we mainly focus on the plugins and extensions as it recommends.
 
 ## Development View
 The development view analyzes the component-level structure of Vue Router, identifying the major modules and their dependencies. The below section offers an overview of the system's components, their organizations, and interactions.
-#### System Components
+### System Components
 The source code needs to be analyzed to understand the component-level architecture of the Vue Router. The source code analysis will also help in understanding the components of the system. Discussed below are the components of the Vue router repository:
 1. Router:
 The core element for managing the routing functionality, including the route configuration, navigation, and rendering of route components based on the current URL, is the 'Router.'
 2. Route:
 The 'Route' component represents a single route definition within the application. It includes properties such as the route path, the component to render, and any route-specific options.
+3. Navigation Guards:
+Vue Router offers a robust mechanism called navigation guards. The guards are functions that can be applied to routes, allowing developers to control and manipulate the navigation flow. Navigation guards enable authentication checks and data validation before entering or leaving a route.
+4. Route Components:
+Vue Router works with various Vue components associated with each route. These components represent the views or UI elements rendered when specific routes are active. Examples of route components include home pages, about pages, user profiles, or any other views within the application.
 
-#### Dependencies
+### *Figure 1- UML Diagram for Vue Router*
+<img src="./img/vuecomponentdiagram.png" alt="vuecomponentdiagram image" />
+This figure shows how components interact with each other and the dependency within.
+
+### Dependencies
 The component-level architecture also includes dependencies within and outside the system. Vue Router relies on the Vue.js framework as a foundational element. Vue Router relies on the Vue.js framework to integrate routing functionality seamlessly into Vue.js applications. It leverages Vue.js's reactive data-binding, component composition, and virtual DOM capabilities to enable dynamic and responsive single-page applications. Vue Router extends Vue.js by providing a routing system that maps URLs to different views or components, facilitating the creation of a smooth and intuitive user experience. In addition to its dependence on the Vue.js framework, Vue Router also has dependencies on external libraries or modules that enhance its functionality. These dependencies include libraries for handling authentication, managing state or providing additional features and utilities. Vue Router can offer a more comprehensive and feature-rich routing solution for Vue.js applications by leveraging these external dependencies.
-#### Source Code Structure
+### Source Code Structure
 The source code structure of Vue Router reflects the component organization. Further exploration of the GitHub repository is necessary to gain a more comprehensive understanding of the specific files and their roles. Analyzing the repository's files and directories will unveil the distribution of different components and modules.
-#### Testing and Configuration Approach
+### Testing and Configuration Approach
 Vue Router emphasizes the importance of automated testing to ensure reliability and stability. It provides a comprehensive testing approach integrated into the codebase. Developers can leverage testing frameworks and tools, such as Jest, to create test suites and ensure the correct behavior of the router's components and functionality. Regarding configuration, Vue Router supports various options to customize and adapt the router to specific project requirements. Developers can configure the router through base URL, route mode (history or hash), and fallback routes.
-#### Conclusion
+### Conclusion
 This report delves into the component-level architecture of Vue Router, a critical component of Vue.js applications. We have identified key components such as Router, Route, Navigation Guards, and Route Components by analyzing the Vue Router repository. The diagram provides a visual representation of their organization and dependencies. Additionally, we have discussed the source code structure, testing approach, and configuration aspects of the Vue Router. Understanding the component-level architecture of Vue Router is essential for developers to build robust and efficient Vue.js applications. By leveraging Vue Router's power, developers can easily create dynamic and responsive single-page applications.
 
 
@@ -50,6 +58,12 @@ Determine the system's critical resources, such as user login information or pri
 Examine the system's susceptibility to risks like cross-site scripting (XSS) or SQL injection attacks.
 Review the encryption and authentication techniques employed to guarantee a safe client-server connection.
 
+#### Third activity: Performance assessment
+Examine the client-server network connectivity, including any user of RESTful APIs or WebSocket connections.
+To find opportunities for performance improvement, measure response times and network latency.
+To ensure that client requests are handled efficiently, check the server's resource use.
+
+Through analyzing, We can discover more regarding how the architecture of the vue-router system supports scalability, safety, and performance in a client-server context by putting these tasks into practice and taking into account the pertinent issues. It is essential to remember that these actions should be customized to the system under analysis's unique implementation needs and specifications.
 
 ## Identify Styles & Patterns Used
 #### High-level architectural style:
@@ -61,18 +75,31 @@ The Vue Router is an important feature in Vue.js applications that works in tand
 
 Indeed, Vue Router employs several important software design patterns to improve its efficiency and maintainability.
 
-####Front Controller Pattern:
+#### Front Controller Pattern:
 Vue Router acts as a "Front Controller," a design pattern that centralizes all requests and routing rules. The router instance in Vue Router serves as this controller, managing the routing rules and processing multiple route requests.
-- Context: Vue Router applies the Front Controller pattern, centralizing all request handling.
-- Problem: Without a centralized system, handling and processing requests for multiple routes can become scattered, leading to potential inconsistencies and increased complexity.
-- Solution: The router instance in Vue Router acts as a front controller, controlling all routing rules and processing all route requests. It provides a centralized point of control, thereby reducing complexity and increasing predictability.
+- **Context**: Vue Router applies the Front Controller pattern, centralizing all request handling.
+- **Problem**: Without a centralized system, handling and processing requests for multiple routes can become scattered, leading to potential inconsistencies and increased complexity.
+- **Solution**: The router instance in Vue Router acts as a front controller, controlling all routing rules and processing all route requests. It provides a centralized point of control, thereby reducing complexity and increasing predictability.
 
 
-####Facade Pattern:
+#### Facade Pattern:
 Vue Router simplifies complex processes like managing browser history or matching routes, presenting a streamlined interface for developers. This design pattern, known as the Facade pattern, abstracts complexity, allowing developers to interact with complicated subsystems through a simplified 'facade,' thus enhancing user experience.
-- Context: Vue Router uses the Facade pattern to simplify its API for developers.
-- Problem: Managing browser history, handling route matching, and updating components can be complex. Direct interaction with these subsystems can lead to mistakes and unnecessary complexity.
-- Solution: Vue Router provides a simple interface for these complex subsystems. It abstracts the underlying complexity, allowing developers to interact with the router's features without understanding all the details of how they work.
+- **Context**: Vue Router uses the Facade pattern to simplify its API for developers.
+- **Problem**: Managing browser history, handling route matching, and updating components can be complex. Direct interaction with these subsystems can lead to mistakes and unnecessary complexity.
+- **Solution**: Vue Router provides a simple interface for these complex subsystems. It abstracts the underlying complexity, allowing developers to interact with the router's features without understanding all the details of how they work.
+
+#### Singleton Pattern:
+Vue Router applies the Singleton pattern to ensure there's only one router instance throughout a Vue.js application. This approach centralizes the management of routing and prevents any inconsistencies or conflicts that could arise from having multiple router instances, promoting consistency in navigation.
+- **Context**: Vue Router applies the Singleton pattern to the router instance in a Vue.js application.
+- **Problem**: Multiple instances of the router could lead to conflicting states and inconsistencies in the application's navigation.
+- **Solution**: Using the Singleton pattern, Vue Router ensures that there is only one instance of the router throughout the application. This prevents potential conflicts and promotes consistency in navigation.
+
+#### Observer Pattern:
+The Observer pattern is extensively utilized in Vue Router, which enables it to react promptly to changes in the application's state, especially the URL. This pattern works by having an object (Subject) maintain a list of its dependents (Observers), alerting them automatically of any state changes. This means Vue Router can 'observe' the URL and adjust accordingly whenever it changes, resulting in a reactive and responsive application.
+- **Context**: Vue Router uses the Observer pattern to react to changes in the application's state, specifically the URL.
+- **Problem**: The system needs to update the rendered components whenever the URL changes. Manual updates can lead to inefficiencies and errors.
+- **Solution**: With the Observer pattern, Vue Router can 'observe' the URL and react whenever it changes. The router instance (as the Observer) maintains a list of its dependents (as Subjects), and it is notified automatically of any state changes, allowing the system to respond dynamically to URL changes.
+
 
 ## Architectural Assessment
 - Single Responsibility Principle
@@ -223,3 +250,34 @@ test('useLink isActive & isExactActive', () => {
  expect(isExactActive.value).toBe(true);
 });
 ```
+**Bug Fix**:
+Missing NavigationFailureType and isNavigationFailure in Types
+
+**Issue Description**:
+The bug involved missing type definitions for NavigationFailureType and isNavigationFailure in the types exported from the router module of vue-router. This omission caused a lack of type support and documentation for these important components, which could lead to confusion and potential errors for developers using the library.
+
+**Resolution**:
+To fix this bug, the missing type definitions were added to the router module. The following changes were made to the code:
+
+```
+import { VueRouter, RouterLink, RouterView, START_LOCATION } from './router'
+
+export default VueRouter
+export { RouterView, RouterLink, START_LOCATION }
+```
+
+After the fix:
+```
+import { VueRouter, RouterLink, RouterView, START_LOCATION, NavigationFailureType, isNavigationFailure } from './router'
+
+export default VueRouter
+export { RouterView, RouterLink, START_LOCATION }
+export { RouterView, RouterLink, START_LOCATION, NavigationFailureType, isNavigationFailure }
+```
+**Explanation**:
+The original code was missing the exports for NavigationFailureType and isNavigationFailure. To fix this, the import statement was updated to include these two components from the router module. Additionally, the export statement was modified to include these components in exported types.
+With this bug fix, developers using vue-router can now benefit from the proper type support and documentation for NavigationFailureType and isNavigationFailure.
+
+
+
+
