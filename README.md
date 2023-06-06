@@ -1,78 +1,39 @@
 # Vue Router
-
-## Background
+A robust routing framework created specifically for Vue.js applications is called Vue Router. It has a thorough routing system and effortlessly interacts with Vue.js, a progressive JavaScript framework for creating user interfaces.
+## Context and Background
 Vue CLI( Vue Command Line) is a development tool that aims to simplify and streamline the process of creating, managing, and building Vue.js projects. The Vue.js is a progressive JavaScript framework for building approachable, flexible, and efficient user interfaces. Through a command-line interface, the CLI is a tool that enables developers to communicate with the Vue ecosystem, and provides various commands and features to scaffold new projects, configure project settings, run development servers, and optimize and build projects for production. Vue Router was developed to address the need for a robust routing system within Vue.js applications. It provides a way to map URLs to different views or components, allowing users to create dynamic and responsive Single-Page application. As we doing this project, we mainly focus on the plugins and extensions as it recommends.
 
-## System Components:
-### *Figure 1 - Component Image*
-<img src="./img/componentdigram.png" alt="component image" />
+## Development View
+The development view analyzes the component-level structure of Vue Router, identifying the major modules and their dependencies. The below section offers an overview of the system's components, their organizations, and interactions.
+#### System Components
+The source code needs to be analyzed to understand the component-level architecture of the Vue Router. The source code analysis will also help in understanding the components of the system. Discussed below are the components of the Vue router repository:
 
-`Router`: The component that manages the routing functionality and handles route configuration, navigation, and rendering of route components based on the current URL.\
-`Route`: Represents a single route definition in the application. It typically includes properties such as the route path, component to render, and any associated route-specific options.\
-`Route Components`: Vue components associated with each route. They represent the views or UI elements that will be rendered when specific routes are active. Examples of route components could include components for the home page, about page, user profile, or any other views in the application.\
-`Navigation Guards`: Functions that can be applied to routes and for controling and manipulating the navigation flow. They allow developers to perform actions before entering or leaving a route, such as authentication checks, data loading, or redirections.\
-`Router-View`: A special component provided by "vue-router" that acts as a placeholder for the rendered route components. It is typically used in the application's template to define where the active route component should be rendered.\
-`Router-Link`: Component provided by "vue-router" that allows for easy navigation between routes. It generates anchor tags with appropriate href attributes based on the specified route paths.
 
-## Introduction
-Vue Router is a routing library that allows developers to manage client-side routing in single-page applications (SPAs) built with the Vue.js framework. It enables the creation of dynamic and interactive user interfaces by mapping URLs to specific components. Features include:
-  <ul>
-    <li>Nested routes mapping</li>
-    <li>Dynamic Routing</li>
-    <li>Modular, component-based router configuration</li>
-    <li>Route params, query, wildcards</li>
-    <li>View transition effects powered by Vue.js' transition system</li>
-    <li>Fine-grained navigation control</li>
-    <li>Links with automatic active CSS classes</li>
-    <li>HTML5 history mode or hash mode</li>
-    <li>Customizable Scroll Behavior</li>
-    <li>Proper encoding for URLs</li>
-  </ul>
-<p>Vue Router was created by Evan You, the creator of Vue.js, and is currently maintained by the Vue.js team and the open-source community. The Vue.js team is responsible for approving changes to its code and architecture, and the library is developed and maintained as an open-source project.</p>
+## Applied Perspective
+Client-Server Architecture Perspective:
+The client side, which is in charge of the user interface and presentation logic. The two main components of the client-server architecture are the server and data storage, processing, and business logic management. The client and server often utilize HTTP or WebSocket to communicate across a network.
 
-## Report
+We will take into account the following issues when we examine the system's design from a Client-Server design perspective:
+Scalability: The system's capacity to manage growing user volume and ongoing queries is the subject of this concern. We may examine the distributed processing capabilities, caching strategies, and load-balancing systems used in the overall framework of the vue-router system. It is crucial to determine if the design allows for horizontal scaling, which needs are increased by adding additional servers or adopting cloud-based solutions.
+Safety: A key component of every client-server design is security. It entails safeguarding the system from dangers such as data breaches, illegal access, and other security issues. The authentication procedures, data encryption techniques, secure communication protocols (such as HTTPS), and access control measures are implemented in the vue-router system.
 
-### Applied Perspective
-- Client-Server Architecture Perspective
-<p>The client side, which is in charge of the user interface and presentation logic. The two main components of the client-server architecture are the server and data storage, processing, and business logic management. The client and server often utilize HTTP or WebSocket to communicate across a network.</p>
+## Identify Styles & Patterns Used
+#### High-level architectural style:
+Vue Router follows the Model-View-ViewModel (MVVM) architectural approach, with clear distinctions between the Model, View, and ViewModel roles. These distinctions effectively separate data management, user interface, and data binding problems.
 
-- Relevant Client-Server Architecture Concerns
-<ul>
+The Model layer in Vue Router is linked to the data points in a Vue component. This is where the application's information and functionality are saved. When this data changes in response to user activities, Vue Router may instantly update what the user sees on their screen. Vue Router offers a unique framework that connects the View to the ViewModel in an easy-to-use manner. This means that whenever the ViewModel changes, the View does as well.  The ViewModel layer, or the link between the Model and the View, is essentially a Vue component. A component in Vue Router performs the function of a ViewModel since it manages and modifies the data displayed on the View. It provides the View with attributes and methods and notifies it when something changes.
 
-**Scalability:** Consider the system's capacity to scale in order to accommodate growing user traffic and many continuous inquiries. This entails investigating the distributed processing capabilities, caching techniques, and load balancing systems.
 
-**Safety:** Evaluate the system's security procedures in place to guard against unauthorized access, data breaches, and other security risks. Analyzing authentication processes, data encryption, and secure communication protocols may be necessary for this.
-
-**Performance:** Consider the client-server aspect of the vue-router architecture while evaluating performance. To find possible bottlenecks or opportunities for improvement, analyze variables like response times, network latency, and resource use.
-
-**Network Communication:** Consider the client-server interactions and data types used in the vue-router system. This involves investigating any used communication techniques, such as WebSocket connections or RESTful APIs.
-
-**Client-Side Rendering:** Take into account how the vue-router system manages client-side rendering. Analyze the effectiveness of client-side component rendering and how it affects both performance and user experience.
-
-**Data Storage and Management:** Analyze the server-side data storage technologies employed by the system for data management. To guarantee effective data storage and retrieval, examine the data models, database technology, and data management techniques used.
-</ul>
-
-### Identify Styles & Patterns Used
-
-- High-level architectural style
-
-**Client-side:** Vue Router controls routing logic within the browser rather than on the server. This method enables dynamic changes and smoother transitions between views or pages without requiring a full page reload. Client-side routing allows for a more engaging and responsive user experience.
-
-**Presentation Layer:** This layer is responsible for drawing components and handling user interactions and constitutes the user interface (UI). Vue components serve as the presentation layer in Vue.js apps. Vue Router is embedded into the presentation layer and is in charge of routing and navigation issues. It contains the components and logic required to enable navigating between multiple views based on the active route.
-
--  Software Design Patterns
-
-**“Front Controller" design pattern**
-
-The Vue Router uses the "Front Controller" design pattern. The Front Controller design centralizes request handling and serves as a single point of entry for routing and request processing. The router instance functions as the front controller in the context of Vue Router, controlling the routing logic and processing requests for multiple routes.
-
-The Front Controller design is used by Vue Router, which provides a centralized router instance that controls routing setup and handles navigation within a Vue.js application. The router instance defines the accessible routes and associated components, and it handles component rendering based on the active route. Vue Router provides a consistent and centralized method to routing in Vue.js applications, fostering separation of concerns and modularization.
-
-### Architectural Assessment
+## Architectural Assessment
 - Single Responsibility Principle
 <p>
 Vue Router 3.0 adheres to the SRP by focusing on the responsibility of handling navigation and routing within a Vue.js application. Its primary role is to provide a way to define routes, map them to components, and manage the navigation flow. By limiting its scope to routing and navigation-related tasks, Vue Router promotes separation of concerns and keeps the responsibility of routing separate from other application logic. This enhances the modularity and maintainability of the codebase, as changes in routing requirements can be isolated to the router-related code without affecting other parts of the application. Additionally, Vue Router integrates seamlessly with Vue.js components and supports features like route-based code splitting, lazy-loading, and navigation guards. These features further reinforce the SRP by allowing developers to encapsulate specific functionality within individual components, keeping them focused on their primary responsibilities.
 </p>
+**code chunk
+
+In link.js, the guardEvent function is responsible for checking various conditions before allowing the default navigation behavior to occur. It checks for control keys, default prevention, right-clicks, and target="_blank" attributes. This function has a single responsibility related to event guarding, which adheres to the SRP.
+
+Additionally, the RouterView component in view.js and its helper functions have responsibilities related to rendering the appropriate component based on the route and handling props. They are closely related to the purpose of the component, making it cohesively follows the Single Responsibility Principle.
 
 - Open-Closed Principle
 <p>
@@ -100,3 +61,27 @@ If a component only needs to define routes and handle basic navigation, it can f
 Since Vue Router is primarily a low-level module that provides routing functionality to higher-level components and views within a Vue.js application. It is not responsible for managing dependencies or enforcing inversion of control.
 Developers can just define their own abstractions or interfaces that represent the routing functionality required by their components. By depending on these abstractions, rather than directly on the Vue Router instance, components become independent of the concrete router implementation. Rather than directly importing and using the Vue Router instance in a component, the component could depend on a custom router interface that provides the necessary routing methods and properties. This allows for easier substitution of different routing implementations or mocks during testing.
 </p>
+
+## System Improvement
+Multiple actions may be taken to improve the Vue Router system's performance. The system's reaction times will be improved, network latency will be decreased, and resource use will be optimized. The following suggestions can be taken into account:
+
+- **Caching Strategy:**
+Use caching to avoid performing time-consuming calculations and data retrieval. Route components, API answers, and other frequently accessed data can all benefit from caching. The technology can speed up response times and lower server load by caching data.
+
+- **Network Connection Optimization:**
+Use methods like HTTP/2, connection pooling, and compression to improve network connections. These improvements can help the system run more productively and minimize latency. Moreover, think about employing Content Delivery Networks (CDNs) to distribute static assets, optimizing speed.
+
+- **Minification and Compression:**
+JavaScript, CSS, and other static assets should be minified and compressed to minimize their file sizes. Faster download times and better performance, especially on networks with constrained capacity, are caused by smaller file sizes.
+
+- **Code Splitting:**
+Implement code-splitting strategies to ensure that only the JavaScript code required for each route or component is loaded. The first load time can be shortened and additional loads can be postponed until they are needed by breaking the code up into smaller portions. This strategy enhances perceived performance and aids in early rendering optimization.
+
+- **Lazy Loading:**
+Implement lazy loading to load route components only when they are required. This method shortens the first bundle and accelerates the loading of the first page. You can use dynamic imports or lazy loading or by leveraging Webpack's code-splitting capabilities.
+
+- **Performance Testing and Optimization:**
+Perform performance tests often to locate bottlenecks and potential areas for progress. To gauge and assess the system's performance, utilize tools like Lighthouse, WebPageTest, or Chrome DevTools. Apply improvements including crucial rendering route optimization, resource reduction for render-blocking, and TTFB improvement based on test findings.
+
+- **Server-Side Rendering (SSR):**
+Consider using server-side rendering (SSR) for pages that demand quicker page loads or improved search engine optimization (SEO). SSR reduces client-side rendering costs and boosts perceived performance by pre-rendering the Vue components on the server and sending the produced HTML to the client.
