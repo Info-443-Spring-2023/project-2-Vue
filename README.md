@@ -20,8 +20,15 @@ Client-Server Architecture Perspective:
 The client side, which is in charge of the user interface and presentation logic. The two main components of the client-server architecture are the server and data storage, processing, and business logic management. The client and server often utilize HTTP or WebSocket to communicate across a network.
 
 We will take into account the following issues when we examine the system's design from a Client-Server design perspective:
-Scalability: The system's capacity to manage growing user volume and ongoing queries is the subject of this concern. We may examine the distributed processing capabilities, caching strategies, and load-balancing systems used in the overall framework of the vue-router system. It is crucial to determine if the design allows for horizontal scaling, which needs are increased by adding additional servers or adopting cloud-based solutions.
-Safety: A key component of every client-server design is security. It entails safeguarding the system from dangers such as data breaches, illegal access, and other security issues. The authentication procedures, data encryption techniques, secure communication protocols (such as HTTPS), and access control measures are implemented in the vue-router system.
+
+- Scalability: The system's capacity to manage growing user volume and ongoing queries is the subject of this concern. We may examine the distributed processing capabilities, caching strategies, and load-balancing systems used in the overall framework of the vue-router system. It is crucial to determine if the design allows for horizontal scaling, which needs are increased by adding additional servers or adopting cloud-based solutions.
+
+- Safety: A key component of every client-server design is security. It entails safeguarding the system from dangers such as data breaches, illegal access, and other security issues. The authentication procedures, data encryption techniques, secure communication protocols (such as HTTPS), and access control measures are implemented in the vue-router system.
+
+- Performance: In client-server designs, performance is crucial, and it's crucial to assess the system's reaction times, network latency, and resource use. We can find possible obstacles and possibilities for development by examining these aspects. Performance in the vue-router system may be improved by methods including caching, improving network connection, and reducing server-side computation.
+- Network Communication: Consider the client-server interactions and data types used in the vue-router system. This involves investigating any used communication techniques, such as WebSocket connections or RESTful APIs.
+- Client-Side Rendering: Take into account how the vue-router system manages client-side rendering. Analyze the effectiveness of client-side component rendering and how it affects both performance and user experience.
+Data Storage and Management: Analyze the server-side data storage technologies employed by the system for data management. To guarantee effective data storage and retrieval, examine the data models, database technology, and data management techniques used.
 
 ## Identify Styles & Patterns Used
 #### High-level architectural style:
