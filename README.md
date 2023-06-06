@@ -59,11 +59,23 @@ For example, developers can customize route matching rules, introduce additional
 By allowing for such extensions, Vue Router empowers developers to adapt the routing behavior to the specific needs of their application, while keeping the core router implementation intact. This separation between the core implementation and extension points aligns with the principles of the OCP.
 </p>
 
+Similarly, some examples can be found in the components of Vue Router.
+** code chunk
+The eventTypes array defines the types of events that can be specified as the event prop of the RouterLink component. By including different event types in this array, the component can handle additional events without modifying the existing code. This adheres to the Open-Closed Principle because the code is closed for modification, but it can be extended by adding new event types to the eventTypes array.
+
+In view.js, the name prop in RouterView allows for the extension of its component by specifying a different view component name. This means that new view components can be added and rendered without modifying the existing RouterView component code. The component remains closed for modification while being open for extension through the name prop.
+
 - Liskov Substitution Principle
 <p>
 Vue Router does not directly enforce the Liskov Substitution Principle because it does not involve inheritance or subclassing as a core part of its design. Instead, it focuses on providing routing functionality through composition and configuration within Vue.js applications. Therefore, the concept of substituting objects of a superclass with objects of its subclasses is not directly applicable to Vue Router.
 While Vue Router itself does not enforce the LSP, it is a good practice to consider LSP when designing and implementing components that interact with Vue Router. For example, if a base component uses Vue Router's programmatic navigation methods, such as “router.push()” or “router.replace()”, a subclass component should be able to replace it and continue using these methods without introducing errors or breaking the navigation flow. This ensures that your components remain interchangeable and maintain the expected behavior when used in different contexts.
 </p>
+
+In the module of navigation guards, isUpdateNavigation and isLeaveNavigation functions are used to determine whether a navigation event should trigger the corresponding guard. When the behavior of these functions is not consistent with the behavior expected from their parent class useFilteredGuard, the LSP is violated.
+
+## code chunk
+Again, router view assumes that the matched object will contain components with specific names and performs actions based on that assumption. However, substituting the matched object with a different implementation that does not conform to these assumptions would lead to incorrect behavior or errors in the RouterView component.
+
 
 - Interface Segregation Principle
 <p>
