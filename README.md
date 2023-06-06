@@ -113,3 +113,31 @@ Perform performance tests often to locate bottlenecks and potential areas for pr
 
 - **Server-Side Rendering (SSR):**
 Consider using server-side rendering (SSR) for pages that demand quicker page loads or improved search engine optimization (SEO). SSR reduces client-side rendering costs and boosts perceived performance by pre-rendering the Vue components on the server and sending the produced HTML to the client.
+
+- **Progressive Web App (PWA) Features:**
+Implement PWA capabilities, such as offline caching and service workers, to enable offline access and stimulate speed on subsequent visits. The application may continue to run even when there is no active network connection thanks to the offline functionality provided by service workers, who can also cache static assets and API answers.
+
+- **Database and Data Storage Optimization:**
+To guarantee effective data retrieval and manipulation, optimize database queries and data storage. To reduce the time it takes to access data, use effective indexing techniques, denormalization methods, and database speed optimization.
+
+- **Performance Monitoring:**
+Implement performance analytics and monitoring to track and evaluate the system's performance over time. To spot performance decline and take proactive measures to solve any problems, use tools like Google Analytics, New Relic, or bespoke monitoring solutions.
+
+The Vue Router system may give quicker response times, enhanced user experiences, and effective resource use by putting these performance improvements into place, which will make the application more performant and responsive.
+
+
+**Feature improvement:**
+In the original code, when a developer makes a mistake by calling certain methods in the wrong place, the error message they see might be confusing. In the updated version, we made the error message more helpful. It now tells the developer that they might be using those methods outside of a Vue component, which is not allowed. This should make it easier for them to understand their mistake and how to fix it.
+
+**code chunk**
+
+function throwNoCurrentInstance (method) {
+  if (!getCurrentInstance()) {
+    throw new Error(
+      ("[vue-router]: Missing current instance. " + method + "() must be called inside <script setup> or setup(). " +
+      "Check that you are within a Vue component context when calling " + method + "().")
+    )
+  }
+}
+
+This error message now provides a little more context to the developer as to what might be the problem and what they should look into. Error messages should guide developers to the right solution and not leave them more confused.
