@@ -103,9 +103,9 @@ The Observer pattern is extensively utilized in Vue Router, which enables it to 
 
 ## Architectural Assessment
 - Single Responsibility Principle
-<p>
+
 Vue Router 3.0 adheres to the SRP by focusing on the responsibility of handling navigation and routing within a Vue.js application. Its primary role is to provide a way to define routes, map them to components, and manage the navigation flow. By limiting its scope to routing and navigation-related tasks, Vue Router promotes separation of concerns and keeps the responsibility of routing separate from other application logic. This enhances the modularity and maintainability of the codebase, as changes in routing requirements can be isolated to the router-related code without affecting other parts of the application. Additionally, Vue Router integrates seamlessly with Vue.js components and supports features like route-based code splitting, lazy-loading, and navigation guards. These features further reinforce the SRP by allowing developers to encapsulate specific functionality within individual components, keeping them focused on their primary responsibilities.
-</p>
+
 ```
 export function guardEvent (e: any) {
   // don't redirect with control keys
@@ -180,7 +180,19 @@ Developers can just define their own abstractions or interfaces that represent t
 </p>
 For example, onBeforeRouteUpdate and onBeforeRouteLeave functions in navigation guards directly depend on the implementation of the useFilteredGuard function, which in turn depends on the getCurrentInstance and useRouter functions. This violates the DIP because the high-level functions should not depend on the low-level implementation details.
 
-The RouterLink component violates DIP by directly importing and depending on the implementation of the resolveComponent and inject functions from Vue. Components should depend on abstractions rather than specific implementations.
+Also in the example below, the createRoute function has a direct dependency on the concrete VueRouter class. The router parameter is of type VueRouter, which is a specific implementation class. Similar violations can be found in the util functions of Route.
+```
+export function createRoute (
+  record: ?RouteRecord,
+  location: Location,
+  redirectedFrom?: ?Location,
+  router?: VueRouter
+): Route {
+  const stringifyQuery = router && router.options.stringifyQuery
+
+  // ...
+}
+```
 
 ## System Improvement
 Multiple actions may be taken to improve the Vue Router system's performance. The system's reaction times will be improved, network latency will be decreased, and resource use will be optimized. The following suggestions can be taken into account:
